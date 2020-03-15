@@ -27,7 +27,17 @@ The image will run until stopped, and will not restart with the host machine. Wh
 7. [Connect](https://code.visualstudio.com/docs/remote/containers#_attaching-to-running-containers) to the image with VS Code.
 8. Install the following VS Code plugins remotely: [ghcide](https://marketplace.visualstudio.com/items?itemName=DigitalAssetHoldingsLLC.ghcide), [hoogle-vscode](https://marketplace.visualstudio.com/items?itemName=jcanero.hoogle-vscode). Their dependencies are already installed in the machine.
 
-# Known Problems
+# Additional Project Setup
+For a project to correctly work with ```ghcide```, a ```hie.yaml``` file has to be created. A simple example of its contents would be:
+```
+cradle:
+  cabal:
+    component: "MyRepository"
+```
+
+For more complex examples, check the setup at [hie-bios](https://github.com/mpickering/hie-bios#explicit-configuration). However, this will bring up the [known problem number 2](#known-problems).
+
+# <a name="known-problems"></a>Known Problems
 There are some indirect pain points in the setup:
 
 1. ```ghcide``` at the moment does not restart when new functions are added to a module. Restart the window with ```ctrl+shift+P``` -> ```>Developer: Reload Window``` so ```ghcide``` picks up the new definitions.
