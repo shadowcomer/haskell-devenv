@@ -6,7 +6,7 @@ This repository allows for the creation of a haskell development environment. It
 3. Create a Haskell development workflow using Cabal and ghcide.
 4. Be easy for Haskell newcomers to setup and begin learning Haskell. Haskell tooling can be stressful when trying to learn the language, and can turn away people from learning the programming language.
 
-Although the above constraints are restricted to a particular scenario, such as developing from the Windows operating system, the approach may work for other systems.
+Although the above constraints create a very particular scenario, such as developing from the Windows operating system, the approach may work for other systems.
 
 # Setup
 1. Install [VS Code](https://code.visualstudio.com/).
