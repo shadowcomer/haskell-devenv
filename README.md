@@ -26,3 +26,23 @@ The image will run until stopped, and will not restart with the host machine. Wh
 
 7. [Connect](https://code.visualstudio.com/docs/remote/containers#_attaching-to-running-containers) to the image with VS Code.
 8. Install the following VS Code plugins remotely: [ghcide](https://marketplace.visualstudio.com/items?itemName=DigitalAssetHoldingsLLC.ghcide), [hoogle-vscode](https://marketplace.visualstudio.com/items?itemName=jcanero.hoogle-vscode). Their dependencies are already installed in the machine.
+
+# Known Problems
+There are some indirect pain points in the setup:
+
+1. ```ghcide``` at the moment does not restart when new functions are added to a module. Restart the window with ```ctrl+shift+P``` -> ```>Developer: Reload Window``` so ```ghcide``` picks up the new definitions.
+2. ```ghcide``` at the moment has trouble with the ```Setup.hs``` module. When we have an [explicit](https://github.com/mpickering/hie-bios#explicit-configuration) ```hie.yaml```, something like this is reported:
+```
+Step 6/6: Type checking the files
+File:     /home/ubuntu/MyRepository/Setup.hs
+Hidden:   no
+Range:    1:7-1:26
+Source:   not found
+Severity: DsError
+Message: 
+  Could not load module `Distribution.Simple'
+  It is a member of the hidden package `Cabal-2.4.0.1'.
+  Perhaps you need to add `Cabal' to the build-depends in your .cabal file.
+Files that failed:
+ * /home/ubuntu/MyRepository/Setup.hs
+```
